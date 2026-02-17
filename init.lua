@@ -1875,8 +1875,7 @@ local function Decompile(bytecode, options)
 	end
 end
 
-local _ENV = (getgenv or getrenv or getfenv)()
-_ENV.decompile = function(script, x, ...)
+return function(script, x, ...)
 	if not getscriptbytecode then
 		error("decompile is not enabled. (getscriptbytecode is missing)", 2)
 		return
@@ -1941,3 +1940,4 @@ _ENV.decompile = function(script, x, ...)
 		return output
 	end
 end
+
